@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Component} from 'react';
 
-class Submit extends Component {
+class Review extends Component {
 
     submitClick = (event) => {
         //this.props.history.push('/');
@@ -16,12 +16,12 @@ class Submit extends Component {
             <section>
                 <h2>Review Your Feedback:</h2>
                 <ul>
-                    <li>{this.props.response.feelingsRating}</li>
-                    <li>{this.props.response.understandingRating}</li>
-                    <li>{this.props.response.supportedRating}</li>
-                    <li>{this.props.response.otherComments}</li>
+                    <li>Feelings: {this.props.response.feelingsRating}</li>
+                    <li>Understanding: {this.props.response.understandingRating}</li>
+                    <li>Support: {this.props.response.supportedRating}</li>
+                    <li>Comments: {this.props.response.otherComments}</li>
                 </ul>
-                <button onClick={this.submitClick}>Submit</button>
+                <button onClick={this.submitClick}>Review</button>
             </section>
         );
     }
@@ -30,4 +30,4 @@ const putReduxStateOnProps = (reduxState) => ({
     response: reduxState.responseReducer
 })
 
-export default connect(putReduxStateOnProps)(Submit);
+export default connect(putReduxStateOnProps)(Review);

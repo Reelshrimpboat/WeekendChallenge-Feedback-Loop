@@ -6,7 +6,7 @@ import Feelings from '../Feedback/Feelings'
 import Understanding from '../Feedback/Understand'
 import Support from '../Feedback/Support'
 import Comments from '../Feedback/Comments'
-import Submit from '../Submit/Submit'
+import Review from '../Review/Review'
 
 class App extends Component {
   render() {
@@ -22,7 +22,7 @@ class App extends Component {
         <Route exact path="/Understand" component={Understanding} />
         <Route exact path="/Support" component={Support} />
         <Route exact path="/Comments" component={Comments} />
-        <Route exact path="/Submit" component={Submit} />
+        <Route exact path="/Review" component={Review} />
         </Router>
       </div>
     );
