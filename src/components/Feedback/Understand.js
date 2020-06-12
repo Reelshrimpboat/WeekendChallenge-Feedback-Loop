@@ -15,11 +15,16 @@ class Understand extends Component {
     }
 
     nextClick = (event) => {
+        if(this.state.response === ''){
+            alert('No Feedback Provided');
+        }
+        else{
         this.props.dispatch({
             type: "UNDERSTAND",
             payload: this.state.response
         })
         this.props.history.push('/Support');
+        }
     }
 
     render() {

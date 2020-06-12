@@ -15,11 +15,13 @@ class Comments extends Component {
     }
 
     nextClick = (event) => {
+
         this.props.dispatch({
             type: "COMMENTS",
             payload: this.state.response
         })
         this.props.history.push('/Review');
+
     }
 
     render() {

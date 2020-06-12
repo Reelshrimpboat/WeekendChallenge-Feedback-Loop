@@ -15,11 +15,15 @@ class Feelings extends Component {
     }
 
     nextClick = (event) => {
+        if (this.state.response === '') {
+            alert('No Feedback Provided');
+        } else {
         this.props.dispatch({
             type: "FEELINGS",
             payload: this.state.response
         })
         this.props.history.push('/Understand');
+        }
     }
 
     render() {

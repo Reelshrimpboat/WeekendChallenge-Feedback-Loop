@@ -9,17 +9,22 @@ class Support extends Component {
     }
 
     handleChange = (event) => {
+        
         this.setState({
             response: event.target.value
         })
     }
 
     nextClick = (event) => {
+        if (this.state.response === '') {
+            alert('No Feedback Provided');
+        } else {
         this.props.dispatch({
             type: "SUPPORT",
             payload: this.state.response
         })
         this.props.history.push('/Comments');
+        }
     }
 
     render() {

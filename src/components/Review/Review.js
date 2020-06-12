@@ -5,7 +5,7 @@ import {Component} from 'react';
 class Review extends Component {
 
     submitClick = (event) => {
-        //this.props.history.push('/');
+        this.props.history.push('/submit');
     }
 
     //
@@ -21,7 +21,7 @@ class Review extends Component {
                     <li>Support: {this.props.response.supportedRating}</li>
                     <li>Comments: {this.props.response.otherComments}</li>
                 </ul>
-                <button onClick={this.submitClick}>Review</button>
+                <button onClick={this.submitClick}>Submit</button>
             </section>
         );
     }
