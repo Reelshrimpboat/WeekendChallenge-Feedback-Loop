@@ -19,7 +19,7 @@ class Feelings extends Component {
             type: "FEELINGS",
             payload: this.state.response
         })
-        //this.props.history.push('/Understand');
+        this.props.history.push('/Understand');
     }
 
     render() {

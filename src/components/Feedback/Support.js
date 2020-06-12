@@ -19,7 +19,7 @@ class Support extends Component {
             type: "SUPPORT",
             payload: this.state.response
         })
-        //this.props.history.push('/Comments');
+        this.props.history.push('/Comments');
     }
 
     render() {

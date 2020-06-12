@@ -19,7 +19,7 @@ class Understand extends Component {
             type: "UNDERSTAND",
             payload: this.state.response
         })
-        //this.props.history.push('/Support');
+        this.props.history.push('/Support');
     }
 
     render() {
