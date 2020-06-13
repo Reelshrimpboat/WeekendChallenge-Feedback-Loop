@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 
     pool.query(sqlText)
         .then((result) => {
-            console.log(`Returned from the database`, result);
+            ///console.log(`Returned from the database`, result);
             res.send(result.rows);
         })
         .catch((error) => {
@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
     const understanding = req.body.understandingRating
     const support = req.body.supportedRating
     const comments = req.body.otherComments
-    console.log("data received, feeling:", feeling, "understanding:", understanding, "support:", support, "comments:", comments);
+    //console.log("data received, feeling:", feeling, "understanding:", understanding, "support:", support, "comments:", comments);
 
     sqlText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
         VALUES (${feeling}, ${understanding}, ${support}, '${comments}');`
@@ -44,7 +44,7 @@ router.post('/', (req, res) => {
 // DELETE Route
 router.delete('/:id', (req, res) => {
     let id = req.params.id; // id of the thing to delete
-    console.log('Delete route called with id of', id);
+    //console.log('Delete route called with id of', id);
 
     //query to send to database
     let queryText = `
@@ -68,11 +68,13 @@ router.delete('/:id', (req, res) => {
 // PUT Route
 router.put('/flag/:id', (req, res) => {
     const feedbackID = req.params.id;
-    const flaggedStatus = !req.body.data;
+    const flaggedStatus = req.body.flaggedStatus;
 
-    sqlText = `UPDATE "feedback" SET flagged=${flaggedStatus} WHERE id=$1`
+    console.log('In flag, feedbackID:', feedbackID, 'flaggedStatus:', flaggedStatus )
 
-    pool.query(sqlText, [feedbackID])
+    sqlText = `UPDATE "feedback" SET flagged=$1 WHERE id=$2`
+
+    pool.query(sqlText, [flaggedStatus , feedbackID])
         .then((result) => {
             console.log('PUT Success', result);
             res.sendStatus(200);

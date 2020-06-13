@@ -36,3 +36,7 @@
   border: 1px solid darkgrey;
   background-color: lightgray;
 }
+
+.flagged {
+  background-color: lightcoral;
+}

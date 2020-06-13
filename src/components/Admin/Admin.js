@@ -21,9 +21,9 @@ class Admin extends Component {
     }
 
     reviewButton = (event) => {
-        console.log('review button clicked:' , event.target.id);
+        console.log('review button clicked:' , event.target.id , event.target.value);
 
-        Axios.put(`/feedback/flag/${event.target.id}` , event.target.value)
+        Axios.put(`/feedback/flag/${event.target.id}`, {flaggedStatus: event.target.value})
             .then((reponse) => {
                 console.log('PUT Success, Response:', reponse);
                 this.props.getFeedback();
@@ -51,16 +51,16 @@ class Admin extends Component {
                     </thead>
                     <tbody>
                         {this.props.feedback.map((feedback) => 
-                        <tr key={feedback.id}>
+                        <tr key={feedback.id} className={feedback.flagged=== true ? "flagged" : "unflagged"}>
                             <td>{feedback.feeling}</td>
                             <td>{feedback.understanding}</td>
                             <td>{feedback.support}</td>
                             <td>{feedback.comments}</td>
                             <td><button onClick={this.deleteButton} id={feedback.id}>Delete</button></td>
                             {feedback.flagged=== true ?
-                            <td>Flagged for Review</td>
+                            <td>Flagged for Review<br /><button onClick={this.reviewButton} id={feedback.id} value="false">Unflag</button></td>
                             :
-                            <td><button onClick={this.reviewButton} id={feedback.id} value={feedback.flagged}>Flag for Review</button></td>
+                            <td><button onClick={this.reviewButton} id={feedback.id} value="true">Flag for Review</button></td>
                             }                        
                         </tr>
                         )}
