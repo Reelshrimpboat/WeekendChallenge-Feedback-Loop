@@ -1,9 +1,13 @@
-# Project Name
+# Feedback-Loop Project
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+This project uses React, Redux, Axios, and Express, install dependencies with terminal command "npm install" and this can be spun up with the terminal commands "npm run server" then "npm run client".
+
+This project also uses PostgresSQL. Database set included in `database.sql` file, name the database `react_gallery`
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+This project is a feedback input loop made with React and PostgresSQL.
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+Feedback is stored upon input on a redux data store.  Axios and Express are used to pull previous entries from the database and React also a serious of questions by routing components
+
+This project was completed as a part of the Prime Digital Academy program, a six month full stack development immersion program.
