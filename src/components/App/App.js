@@ -45,7 +45,7 @@ class App extends Component {
         <Route path="/Comments" component={Comments} />
         <Route path="/Review" render={(props) => <Review getFeedback={this.getFeedback}/>}/>
         <Route path="/Submit" component={Submit} />
-        <Route path="/Admin" component={Admin} />
+        <Route path="/Admin" render={(props) => <Admin getFeedback={this.getFeedback}/>} />
         </Router>
       </div>
     );
