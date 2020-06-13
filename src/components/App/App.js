@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import {connect} from 'react-redux';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import Feelings from '../Feedback/Feelings'
 import Understanding from '../Feedback/Understand'
@@ -19,6 +20,10 @@ class App extends Component {
       axios.get('/feedback')
       .then((response) => {
         console.log('GET Success:', response);
+        this.props.dispatch({
+          type: "GET_DATABASE",
+          payload: response.data
+        })
       }).catch((error) => {
         console.log('GET Failure, Error:', error);
       })
@@ -45,4 +50,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect()(App);
