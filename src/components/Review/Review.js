@@ -1,11 +1,26 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Component} from 'react';
+import Axios from 'axios';
 
 class Review extends Component {
 
     submitClick = (event) => {
-        this.props.history.push('/submit');
+        let feedback = {
+            feelingsRating: this.props.response.feelingsRating,
+            understandingRating: this.props.response.understandingRating,
+            supportedRating: this.props.response.supportedRating,
+            otherComments: this.props.response.otherComments
+        }
+        console.log('submit click, feedback to send:' , feedback)
+        Axios.post('/feedback', feedback)
+        .then((response) => {
+            console.log('Feedback POST Success:' , response)
+            this.props.history.push('/submit');
+        }).catch((error) => {
+            console.log("Feedback POST Failure, Error:", error);
+        })
+        
     }
 
     //

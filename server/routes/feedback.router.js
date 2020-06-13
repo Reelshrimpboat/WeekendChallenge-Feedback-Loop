@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
     // {feelingsRating: "", understandingRating: "", supportedRating: "", otherComments: ""}
 
     sqlText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
-        VALUES (${feeling}, ${understanding}, ${support}, ${comments});`
+        VALUES (${feeling}, ${understanding}, ${support}, '${comments}');`
 
     pool.query(sqlText)
         .then((result) => {
