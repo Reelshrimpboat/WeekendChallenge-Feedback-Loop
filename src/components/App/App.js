@@ -11,6 +11,19 @@ import Submit from '../Submitted/Submitted'
 
 class App extends Component {
 
+  componentDidMount() {
+    this.getFeedback();
+  }
+
+  getFeedback = () => {
+      axios.get('/feedback')
+      .then((response) => {
+        console.log('GET Success:', response);
+      }).catch((error) => {
+        console.log('GET Failure, Error:', error);
+      })
+  }
+
   render() {
     return (
       <div className="App">
