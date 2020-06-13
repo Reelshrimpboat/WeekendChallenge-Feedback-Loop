@@ -26,6 +26,7 @@ class Review extends Component {
         Axios.post('/feedback', feedback)
         .then((response) => {
             console.log('Feedback POST Success:' , response)
+            this.props.getFeedback();
             this.props.history.push('/submit');
         }).catch((error) => {
             console.log("Feedback POST Failure, Error:", error);

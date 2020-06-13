@@ -25,11 +25,12 @@ const responseReducer = (state = {feelingsRating: "", understandingRating: "", s
             return state;
     } 
 };
+
 const feedbackArrayReducer = (state = [], action) => {
     console.log( 'in feedbackArrayReducer, last state:' , state , 'action: payload:' , action.payload )
     switch (action.type) {
-        case 'GET':
-            return { ...state , feelingsRating: action.payload};
+        case 'GET_DATABASE':
+            return action.payload;
             break;
         default:
             return state;

@@ -9,6 +9,7 @@ import Support from '../Feedback/Support'
 import Comments from '../Feedback/Comments'
 import Review from '../Review/Review'
 import Submit from '../Submitted/Submitted'
+import Admin from '../Admin/Admin'
 
 class App extends Component {
 
@@ -42,8 +43,9 @@ class App extends Component {
         <Route path="/Understand" component={Understanding} />
         <Route path="/Support" component={Support} />
         <Route path="/Comments" component={Comments} />
-        <Route path="/Review" component={Review} />
+        <Route path="/Review" render={(props) => <Review getFeedback={this.getFeedback}/>}/>
         <Route path="/Submit" component={Submit} />
+        <Route path="/Admin" component={Admin} />
         </Router>
       </div>
     );

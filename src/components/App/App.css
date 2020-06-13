@@ -16,4 +16,23 @@
 .App-intro {
   font-size: large;
 }
+.wrapper{
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
 
+.adminTable{
+    border-collapse: collapse;
+}
+
+.adminTable td{
+  padding: 10px 30px;
+  border: 1px solid darkgrey;
+}
+
+.adminTable th{
+  padding: 10px 30px;
+  border: 1px solid darkgrey;
+  background-color: lightgray;
+}
