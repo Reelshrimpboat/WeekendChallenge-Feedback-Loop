@@ -24,6 +24,14 @@ class Comments extends Component {
 
     }
 
+    reviewReturn = () => {
+            this.props.dispatch({
+                type: "COMMENTS",
+                payload: this.state.response
+            })
+            this.props.history.push('/Review');
+    }
+
     render() {
         return (
             <section>
@@ -31,7 +39,11 @@ class Comments extends Component {
                 <label>Comments:
                 <input onChange={this.handleChange} className="inputBar" value={this.state.response}></input>
                 </label>
+                {this.props.location.state ?
+                <button onClick={this.reviewReturn}>Back to Review</button>
+                    :
                 <button onClick={this.nextClick}>Next</button>
+                }
             </section>
         );
     }

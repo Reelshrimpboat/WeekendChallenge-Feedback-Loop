@@ -39,11 +39,11 @@ class App extends Component {
         <br/>
         <Router>
         <Route exact path="/" component={Feelings} />
-        <Route exact path="/Understand" component={Understanding} />
-        <Route exact path="/Support" component={Support} />
-        <Route exact path="/Comments" component={Comments} />
-        <Route exact path="/Review" component={Review} />
-        <Route exact path="/Submit" component={Submit} />
+        <Route path="/Understand" component={Understanding} />
+        <Route path="/Support" component={Support} />
+        <Route path="/Comments" component={Comments} />
+        <Route path="/Review" component={Review} />
+        <Route path="/Submit" component={Submit} />
         </Router>
       </div>
     );

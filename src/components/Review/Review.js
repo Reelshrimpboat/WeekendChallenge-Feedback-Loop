@@ -5,6 +5,16 @@ import Axios from 'axios';
 
 class Review extends Component {
 
+    editClick = (event) => {
+            console.log('value:' , event.target.value);
+            this.props.history.push({
+                pathname: `/${event.target.value}`,
+                state: {
+                    reviewButton: 'On'
+                }
+            });
+    }
+
     submitClick = (event) => {
         let feedback = {
             feelingsRating: this.props.response.feelingsRating,
@@ -31,10 +41,10 @@ class Review extends Component {
             <section>
                 <h2>Review Your Feedback:</h2>
                 <ul>
-                    <li>Feelings: {this.props.response.feelingsRating}</li>
-                    <li>Understanding: {this.props.response.understandingRating}</li>
-                    <li>Support: {this.props.response.supportedRating}</li>
-                    <li>Comments: {this.props.response.otherComments}</li>
+                    <li>Feelings: {this.props.response.feelingsRating} <button onClick={this.editClick} value="">Edit</button></li>
+                    <li>Understanding: {this.props.response.understandingRating} <button onClick={this.editClick} value="Understand">Edit</button></li>
+                    <li>Support: {this.props.response.supportedRating} <button onClick={this.editClick} value="Support">Edit</button></li>
+                    <li>Comments: {this.props.response.otherComments} <button onClick={this.editClick} value="Comments">Edit</button></li>
                 </ul>
                 <button onClick={this.submitClick}>Submit</button>
             </section>
