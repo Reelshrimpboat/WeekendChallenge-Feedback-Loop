@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Component} from 'react';
 
-class Understand extends Component {
+class Submit extends Component {
 
     restartClick = (event) => {
         this.props.history.push('/');
@@ -19,4 +19,4 @@ class Understand extends Component {
     }
 }
 
-export default connect()(Understand);
+export default connect()(Submit);

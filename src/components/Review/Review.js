@@ -15,6 +15,19 @@ class Review extends Component {
             });
     }
 
+    getFeedback = () => {
+        Axios.get('/feedback')
+            .then((response) => {
+                console.log('GET Success:', response);
+                this.props.dispatch({
+                    type: "GET_DATABASE",
+                    payload: response.data
+                })
+            }).catch((error) => {
+                console.log('GET Failure, Error:', error);
+            })
+    }
+
     submitClick = (event) => {
         let feedback = {
             feelingsRating: this.props.response.feelingsRating,
@@ -26,8 +39,8 @@ class Review extends Component {
         Axios.post('/feedback', feedback)
         .then((response) => {
             console.log('Feedback POST Success:' , response)
-            this.props.getFeedback();
-            this.props.history.push('/submit');
+            this.getFeedback();
+            this.props.history.push('/Submit');
         }).catch((error) => {
             console.log("Feedback POST Failure, Error:", error);
         })

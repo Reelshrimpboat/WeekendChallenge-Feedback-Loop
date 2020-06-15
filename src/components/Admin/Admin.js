@@ -33,6 +33,11 @@ class Admin extends Component {
             })
     }
 
+      submitClick2 = (event) => {
+          this.props.history.push('/Submit');
+      }
+      
+
     render() {
         return (
             <section>
@@ -66,6 +71,7 @@ class Admin extends Component {
                         )}
                     </tbody>
                 </table>
+                <button onClick={this.submitClick2}>Submit2</button>
                 </div>
             </section>
         );
